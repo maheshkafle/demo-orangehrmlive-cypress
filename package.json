@@ -1,0 +1,25 @@
+{
+  "name": "demo-orangehrmlive-cypress",
+  "version": "1.0.0",
+  "description": "demo-orangehrmlive-cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maheshkafle/demo-orangehrmlive-cypress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maheshkafle/demo-orangehrmlive-cypress/issues"
+  },
+  "homepage": "https://github.com/maheshkafle/demo-orangehrmlive-cypress#readme",
+  "devDependencies": {
+    "cypress": "^8.1.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {}
+}
