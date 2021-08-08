@@ -20,7 +20,6 @@ export class PersonalDetailsPage {
     personaldetailspage_dob_name = '#personal_DOB'
 
     // Page Actions  
-    // Page Actions
     clickMyInfoButton(){
         cy.get(this.my_info_id).click()
     }
