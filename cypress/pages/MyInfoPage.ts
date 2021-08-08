@@ -1,8 +1,5 @@
 export class MyInfoPage {
-    static clickMyInfoButton() {
-        throw new Error("Method not implemented.")
-    }
-    
+  
     // Page Locators
     my_info_id = '#menu_pim_viewMyDetails'
     personal_details_edit_button_id = '#btnSave'
