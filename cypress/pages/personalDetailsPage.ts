@@ -71,11 +71,3 @@ export class PersonalDetailsPage {
 
 
 }
-
-
-export class MyInfoPage {
-   
-    
-    
-    
-}
