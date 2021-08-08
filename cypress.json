@@ -1,3 +1,4 @@
-{
-    "WatchForFileChanges": "False"
+{   
+    "WatchForFileChanges": "False",
+    "defaultCommandTimeout" : 10000
 }
