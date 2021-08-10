@@ -11,13 +11,17 @@ export class PersonalDetailsPage {
     marital_status = 'Married'
     smoker_checkbox_id = '#personal_chkSmokeFlag'
     nickname_id = '#personal_txtEmpNickName'
-    // save_btn_id = '#btnSave'
-
     personaldetailspage_employee_id = '#personal_txtEmployeeId'
     personaldetailspage_driver_license_no_id = '#personal_txtLicenNo'
     personaldetailspage_SSN_no_id = '#personal_txtNICNo'
     personaldetailspage_SIN_no_id = '#personal_txtSINNo'
     personaldetailspage_dob_name = '#personal_DOB'
+    personaldetailspage_attachment_btn_id = '#btnAddAttachment'
+    personaldetailspage_input_file_id = '#ufile'
+    personaldetailspage_btn_save_attachment_id = '#btnSaveAttachment'
+    personaldetailspage_msg_div_class= '.message'
+    personaldetailspage_msg_div_msg = 'Successfully Saved'
+    attachment_container_id = '#frmEmpDelAttachments'
 
     // Page Actions  
     clickMyInfoButton(){
@@ -68,5 +72,11 @@ export class PersonalDetailsPage {
         cy.get(this.personaldetailspage_dob_name).should('be.disabled')
     }
 
-
+    uploadAttachment(path: string){
+        cy.get(this.personaldetailspage_attachment_btn_id).click();
+        cy.get(this.personaldetailspage_input_file_id).attachFile(path);
+        cy.get(this.personaldetailspage_btn_save_attachment_id).click()
+        cy.get(this.personaldetailspage_msg_div_class).contains(this.personaldetailspage_msg_div_msg)
+        cy.get(this.attachment_container_id).contains("evening.jpg")
+    }
 }

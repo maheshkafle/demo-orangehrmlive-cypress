@@ -19,6 +19,7 @@
   "homepage": "https://github.com/maheshkafle/demo-orangehrmlive-cypress#readme",
   "devDependencies": {
     "cypress": "^8.1.0",
+    "cypress-file-upload": "^5.0.8",
     "typescript": "^4.3.5"
   },
   "dependencies": {}

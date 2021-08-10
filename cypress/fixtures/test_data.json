@@ -1,6 +1,10 @@
 {
   "url": "https://opensource-demo.orangehrmlive.com/",
-  "username": "Aatmaram",
-  "password": "12345678",
-  "nickname": "BilBowBaggins"
+  "username": "Admin",
+  "password": "admin123",
+  "nickname": "BilBowBaggins",
+  "pathLessOneMB": "../fixtures/attachments/evening.jpg",
+  "pathOneMB": "../fixtures/attachments/file_1_mb.txt",
+  "pathLargeOneMB": "../fixtures/attachments/largerThan_1_mb.txt"
+  
 }
