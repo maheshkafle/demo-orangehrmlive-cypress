@@ -5,9 +5,7 @@ import {PersonalDetailsPage} from "../pages/personalDetailsPage"
 const loginPage = new LoginPage();
 const personalDetailsPage = new PersonalDetailsPage();
 
-describe('test_OrangHRM_MyInfo_Module', () =>{
-
-    context('test login OrangeHRM', function() {
+describe('test_OrangHRM_MyInfo_Module', () => {
 
         it('should login to Orange HRM', () => {
 
@@ -37,8 +35,14 @@ describe('test_OrangHRM_MyInfo_Module', () =>{
             personalDetailsPage.validateSSNNoIsDisabled();
             personalDetailsPage.validateSINNoIsDisabled();
             personalDetailsPage.validateDOBIsDisabled();
+
+
+            cy.fixture('test_data').then((data) => {
+                personalDetailsPage.uploadAttachment(data.pathLessOneMB);
+                personalDetailsPage.uploadAttachment(data.pathOneMB);
+                personalDetailsPage.uploadAttachment(data.pathLargerOneMB);
+            })
     
         })
-    })
    
  })
