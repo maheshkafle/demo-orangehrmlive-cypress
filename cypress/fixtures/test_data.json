@@ -5,6 +5,11 @@
   "nickname": "BilBowBaggins",
   "pathLessOneMB": "../fixtures/attachments/evening.jpg",
   "pathOneMB": "../fixtures/attachments/file_1_mb.txt",
-  "pathLargeOneMB": "../fixtures/attachments/largerThan_1_mb.txt"
-  
+  "pathLargeOneMB": "../fixtures/attachments/largerThan_1_mb.txt",
+  "street1": "Mahakabi Devkota Marga",
+  "street2": "Maitighar",
+  "city": "Kathmandu",
+  "province": "Bagmati",
+  "postal_code": "44600",
+  "country": "Nepal"
 }
