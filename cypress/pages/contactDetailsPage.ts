@@ -1,3 +1,6 @@
+import {BasePage} from "../pages/basepage";
+
+const basepage = new BasePage();
 export class ContactDetailsPage {
 
     // Locators
@@ -11,27 +14,25 @@ export class ContactDetailsPage {
     country_id = '#contact_country'
     contactdetailspage_msg_div_class= '.message'
     contactdetailspage_msg_div_msg = 'Successfully Saved'
-    // country='Nepal' 
 
     // Page Actions
     navigateToContactDetailsPage(){
-        cy.get(this.contactdetailspage_link).click();
-        
+        basepage.doClick(this.contactdetailspage_link);
     }
 
     editContactDetailsPageFields(street1: string, street2: string, city: string, province: string, postal_code: string, country: string) {
 
-        cy.get(this.contactdetailspage_save_or_edit_btn_id).click();
+        basepage.doClick(this.contactdetailspage_save_or_edit_btn_id);
         // json.stringify method parses text to use as text input
         // clear() clears existing text from fields
-        cy.get(this.address_street_1_id).clear().type(JSON.stringify(street1));
-        cy.get(this.address_street_2_id).clear().type(JSON.stringify(street2));
-        cy.get(this.city_id).clear().type(JSON.stringify(city));
-        cy.get(this.province_id).clear().type(JSON.stringify(province));
-        cy.get(this.postal_code_id).clear().type(JSON.stringify(postal_code));
-        cy.get(this.country_id).select(country);
-        cy.get(this.contactdetailspage_save_or_edit_btn_id).click();
-        cy.get(this.contactdetailspage_msg_div_class).contains(this.contactdetailspage_msg_div_msg);
+        basepage.doTypeInUnparsableField(this.address_street_1_id, street1);
+        basepage.doTypeInUnparsableField(this.address_street_2_id, street2);
+        basepage.doTypeInUnparsableField(this.city_id, city);
+        basepage.doTypeInUnparsableField(this.province_id, province);
+        basepage.doTypeInUnparsableField(this.postal_code_id, postal_code);
+        basepage.doSelect(this.country_id, country);
+        basepage.doClick(this.contactdetailspage_save_or_edit_btn_id);
+        basepage.doValidateSaveDeleteOperation(this.contactdetailspage_msg_div_class, this.contactdetailspage_msg_div_msg)
         
     }
      
