@@ -1,6 +1,6 @@
 import { data } from "cypress/types/jquery"
 import {ContactDetailsPage} from "../pages/contactDetailsPage";
-import {LoginPage} from "../pages/loginpage";
+import {LoginPage} from "../pages/LoginPage";
 import {PersonalDetailsPage} from "../pages/personalDetailsPage";
 import {EmergencyContactsPage} from "../pages/emergencyContactPage";
 
@@ -24,36 +24,36 @@ describe('test_OrangHRM_MyInfo_Module', () => {
 
         // test editable fields in PersonalDetails Page
         personalDetailsPage.clickMyInfoButton();
-        personalDetailsPage.clickPersonalDetailsEditButton();
-        personalDetailsPage.changeNationality();
-        personalDetailsPage.changeMaritalStatus();
-        personalDetailsPage.checkIfSmoker();
-        cy.fixture('test_data').then((data) => {   
-            personalDetailsPage.enterNickName(data.nickname)
-        })  
-        personalDetailsPage.clickSave();
+        // personalDetailsPage.clickPersonalDetailsEditButton();
+        // personalDetailsPage.changeNationality();
+        // personalDetailsPage.changeMaritalStatus();
+        // personalDetailsPage.checkIfSmoker();
+        // cy.fixture('test_data').then((data) => {   
+        //     personalDetailsPage.enterNickName(data.nickname)
+        // })  
+        // personalDetailsPage.clickSave();
 
         // test non-editable fields in PersonalDetails Page
-        personalDetailsPage.validateEmployeeIdIsDisabled();
-        personalDetailsPage.validateDriverLicenseNoIsDisabled();
-        personalDetailsPage.validateSSNNoIsDisabled();
-        personalDetailsPage.validateSINNoIsDisabled();
-        personalDetailsPage.validateDOBIsDisabled();
+        // personalDetailsPage.validateEmployeeIdIsDisabled();
+        // personalDetailsPage.validateDriverLicenseNoIsDisabled();
+        // personalDetailsPage.validateSSNNoIsDisabled();
+        // personalDetailsPage.validateSINNoIsDisabled();
+        // personalDetailsPage.validateDOBIsDisabled();
 
         // test upload attachment to personalDetails page
-        cy.fixture('test_data').then((data) => {
-            personalDetailsPage.uploadAttachment(data.pathLessOneMB);
-            personalDetailsPage.uploadAttachment(data.pathOneMB);
-            personalDetailsPage.uploadAttachment(data.pathLargerOneMB);
-        })
+        // cy.fixture('test_data').then((data) => {
+        //     personalDetailsPage.uploadAttachment(data.pathLessOneMB);
+        //     personalDetailsPage.uploadAttachment(data.pathOneMB);
+        //     personalDetailsPage.uploadAttachment(data.pathLargerOneMB);
+        // })
 
         // Navigate to contactDetails page
-        contactDetailsPage.navigateToContactDetailsPage();
+        // contactDetailsPage.navigateToContactDetailsPage();
 
         // // edit fields in contactDetails page
-        cy.fixture('test_data').then((data) => {   
-            contactDetailsPage.editContactDetailsPageFields(data.street1, data.street2, data.city, data.province, data.postal_code, data.country);
-        })
+        // cy.fixture('test_data').then((data) => {   
+        //     contactDetailsPage.editContactDetailsPageFields(data.street1, data.street2, data.city, data.province, data.postal_code, data.country);
+        // })
 
         // Navigate to emergencyContacts page
         emergencyContactPage.navigateToEmergencyContactsPage();
