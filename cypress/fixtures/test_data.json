@@ -11,5 +11,10 @@
   "city": "Kathmandu",
   "province": "Bagmati",
   "postal_code": "44600",
-  "country": "Nepal"
+  "country": "Nepal",
+  "emg_contact_name": "Madan Kafle",
+  "emg_contact_relationship": "Big Brother",
+  "emg_contact_home_phone": "9843626602",
+  "emg_contact_mobile_phone": "9849287584",
+  "emg_contact_work_phone": "9869419280"
 }
