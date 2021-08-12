@@ -1,3 +1,6 @@
+import {BasePage} from "../pages/basepage";
+
+const basepage = new BasePage();
 export class PersonalDetailsPage {
 
     // Page Locators
@@ -22,61 +25,72 @@ export class PersonalDetailsPage {
     personaldetailspage_msg_div_class= '.message'
     personaldetailspage_msg_div_msg = 'Successfully Saved'
     attachment_container_id = '#frmEmpDelAttachments'
+    filename = "evening.jpg"
+    personaldetailspage_check_all_checkbox_id = '#attachmentsCheckAll'
+    personaldetailspage_delete_btn_id = '#btnDeleteAttachment'
+    personaldetailspage_msg_div_delete_msg = 'Successfully Deleted'
 
     // Page Actions  
     clickMyInfoButton(){
-        cy.get(this.my_info_id).click()
+        basepage.doClick(this.my_info_id);
     }
 
     clickPersonalDetailsEditButton(){
-        cy.get(this.personal_details_edit_button_id).click()
+        basepage.doClick(this.personal_details_edit_button_id);
     }
 
     changeNationality(){
-        cy.get("select"+this.nationality_select_id).select(this.nationality)
+
+        basepage.doSelect("select"+this.nationality_select_id, this.nationality);
     }
 
     changeMaritalStatus(){
-        cy.get("select"+this.marital_status_select_id).select(this.marital_status)
+        basepage.doSelect("select"+this.marital_status_select_id, this.marital_status);
     }
 
     checkIfSmoker(){
-        cy.get(this.smoker_checkbox_id).check()
+        basepage.doTickCheckbox(this.smoker_checkbox_id)
     }
 
     enterNickName(nickName: string){
-        cy.get(this.nickname_id).clear().type(nickName)
+        basepage.doType(this.nickname_id, nickName)
     }
 
     clickSave(){
-        cy.get(this.personal_details_edit_button_id).click()
+        basepage.doClick(this.personal_details_edit_button_id)
     }
 
     validateEmployeeIdIsDisabled(){
-        cy.get(this.personaldetailspage_employee_id).should('be.disabled')
+        basepage.doCheckDisableField(this.personaldetailspage_employee_id);
     }  
 
     validateDriverLicenseNoIsDisabled(){
-        cy.get(this.personaldetailspage_driver_license_no_id).should('be.disabled')
+        basepage.doCheckDisableField(this.personaldetailspage_driver_license_no_id);
     }  
 
     validateSSNNoIsDisabled(){
-        cy.get(this.personaldetailspage_SSN_no_id).should('be.disabled')
+        basepage.doCheckDisableField(this.personaldetailspage_SSN_no_id);
     }  
 
     validateSINNoIsDisabled(){
-        cy.get(this.personaldetailspage_SIN_no_id).should('be.disabled')
+        basepage.doCheckDisableField(this.personaldetailspage_SIN_no_id);
     }  
     
     validateDOBIsDisabled(){
-        cy.get(this.personaldetailspage_dob_name).should('be.disabled')
+        basepage.doCheckDisableField(this.personaldetailspage_dob_name);
     }
 
     uploadAttachment(path: string){
-        cy.get(this.personaldetailspage_attachment_btn_id).click();
-        cy.get(this.personaldetailspage_input_file_id).attachFile(path);
-        cy.get(this.personaldetailspage_btn_save_attachment_id).click()
-        cy.get(this.personaldetailspage_msg_div_class).contains(this.personaldetailspage_msg_div_msg)
-        cy.get(this.attachment_container_id).contains("evening.jpg")
+        basepage.doClick(this.personaldetailspage_attachment_btn_id);
+        basepage.doAttachFile(this.personaldetailspage_input_file_id, path);
+        basepage.doClick(this.personaldetailspage_btn_save_attachment_id);
+        basepage.doValidateSaveDeleteOperation(this.personaldetailspage_msg_div_class, this.personaldetailspage_msg_div_msg)
+        basepage.doValidateSaveDeleteOperation(this.attachment_container_id, this.filename)
+    }
+
+    deletePersonalDetailsPageAttachment(){
+        basepage.doClick(this.personaldetailspage_check_all_checkbox_id);
+        basepage.doClick(this.personaldetailspage_delete_btn_id);
+        basepage.doValidateSaveDeleteOperation(this.personaldetailspage_msg_div_class, this.personaldetailspage_msg_div_delete_msg);
     }
 }
